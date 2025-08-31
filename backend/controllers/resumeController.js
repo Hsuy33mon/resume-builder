@@ -1,9 +1,10 @@
-import Resume from '../models/Resume.js';
+import Resume from '../models/resumeModel.js';
 import path from 'path';
 import fs from 'fs';
 
 export const createResume = async (req, res) => {
     try {
+        console.log(req.body)
         const {title} = req.body;
         
         // DEFAULT TEMPLATE
