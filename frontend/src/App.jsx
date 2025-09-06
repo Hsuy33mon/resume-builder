@@ -1,7 +1,9 @@
+import { Toaster } from 'react-hot-toast'
 import { Route, Routes } from 'react-router-dom'
-import LandingPage  from './pages/LandingPage'
+import EditResume from './components/EditResume'
 import UserProvider from './context/UserContext'
 import Dashboard from './pages/Dashboard'
+import LandingPage from './pages/LandingPage'
 
 const App = () => {
   return (
@@ -9,7 +11,17 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path='/resume/:resumeId' element={<EditResume/>}/>
       </Routes>
+
+      <Toaster toastOptions={{
+        className: "",
+        style: {
+          fontSize : "13px"
+        }
+      } }>
+
+      </Toaster>
     </UserProvider>
   )
 }
