@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import DashboardLayout from "../components/DashboardLayout";
-import { dashboardStyles as styles } from "../assets/dummystyle";
-import { useNavigate } from "react-router-dom";
 import { LucideFilePlus, LucideTrash2 } from "lucide-react";
+import moment from "moment";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { dashboardStyles as styles } from "../assets/dummystyle";
+import { ResumeSummaryCard } from "../components/Card";
+import CreateResumeForm from "../components/CreateResumeForm";
+import DashboardLayout from "../components/DashboardLayout";
+import Modal from "../components/Modal";
 import { API_PATHS } from "../utils/apiPaths";
 import axiosInstance from "../utils/axiosInstance";
-import { ResumeSummaryCard } from "../components/Card";
-import toast from "react-hot-toast";
-import moment from "moment";
-import Modal from "../components/Modal";
-import CreateResumeForm from "../components/CreateResumeForm";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -132,7 +132,7 @@ const Dashboard = () => {
     }
     finally {
         setResumeToDelete(null);
-        showDeleteConfirm(false);
+        setShowDeleteConfirm(false);
     }
   }
 
