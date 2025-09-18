@@ -1,11 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 
-import Resume from '../models/resumeModel.js'
-import upload from '../middleware/uploadMiddleware.js'
+import upload from '../middleware/uploadMiddleware.js';
+import Resume from '../models/resumeModel.js';
 
 export const uploadResumeImages = async (req, res) => {
     try {
+        console.log("Upload request received for resume ID:", req.params);
         // CONFIGURE MULTER TO HANDLE IMAGES
         upload.fields([{ name: "thumbnails" }, { name: "profileImage" }])
         (req, res, async (err) => {
